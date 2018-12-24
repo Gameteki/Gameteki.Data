@@ -4,6 +4,11 @@ node {
     }
 
     stage('build') {
+        sh(script: "dotnet restore", returnStdout: true)
+        sh(script: "dotnet build", returnStdout: true)
+    }
+
+    stage('package') {
         sh(script: "dotnet pack -c Release /p:Version=1.0.0.${BUILD_NUMBER} --include-symbols -p:SymbolPackageFormat=snupkg", returnStdout: true)
     }
 
