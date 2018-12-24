@@ -7,6 +7,9 @@
     <Authors>Stuart Walsh</Authors>
     <Company>Crimson Development Limited</Company>
     <PackageDescription>Contains base data definitions for use in Gameteki derived projects</PackageDescription>
+    <PackageLicenseUrl>https://licenses.nuget.org/MIT</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/Gameteki/Gameteki.Data</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -18,7 +21,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CrimsonDev.Gameteki.StyleCop.Rules" Version="1.0.0" />
+    <PackageReference Include="CrimsonDev.Gameteki.StyleCop.Rules" Version="1.0.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.0" />
