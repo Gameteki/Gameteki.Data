@@ -7,7 +7,7 @@
     <Authors>Stuart Walsh</Authors>
     <Company>Crimson Development Limited</Company>
     <PackageDescription>Contains base data definitions for use in Gameteki derived projects</PackageDescription>
-    <PackageLicenseUrl>https://licenses.nuget.org/MIT</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>    
     <RepositoryUrl>https://github.com/Gameteki/Gameteki.Data</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>

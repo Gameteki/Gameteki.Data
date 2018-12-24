@@ -5,7 +5,7 @@ node {
 
     stage('build') {
         sh(script: "dotnet restore", returnStdout: true)
-        sh(script: "dotnet build", returnStdout: true)
+        sh(script: "dotnet build -c Release", returnStdout: true)
     }
 
     stage('package') {
