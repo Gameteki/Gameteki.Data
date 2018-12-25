@@ -12,7 +12,7 @@ node {
         sh(script: "dotnet pack -c Release /p:Version=1.0.0.${BUILD_NUMBER} --include-symbols -p:SymbolPackageFormat=snupkg", returnStdout: true)
     }
 
-    stage('SonarQube analysis) {
+    stage('SonarQube analysis') {
         def sqScannerMsBuildHome = tool 'sonar-msbuild'
         withSonarQubeEnv('Local Sonar') {
           // Due to SONARMSBRU-307 value of sonar.host.url and credentials should be passed on command line
