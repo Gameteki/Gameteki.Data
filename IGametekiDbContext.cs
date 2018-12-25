@@ -1,12 +1,13 @@
 ﻿namespace CrimsonDev.Gameteki.Data
 {
+    using System;
     using System.Threading;
     using System.Threading.Tasks;
     using CrimsonDev.Gameteki.Data.Models;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Infrastructure;
 
-    public interface IGametekiDbContext
+    public interface IGametekiDbContext : IDisposable
     {
         DbSet<News> News { get; set; }
         DbSet<GametekiUser> Users { get; set; }
@@ -21,7 +22,5 @@
 
         void SetModified<TEntity>(TEntity entity)
             where TEntity : class;
-
-        void Dispose();
     }
  }

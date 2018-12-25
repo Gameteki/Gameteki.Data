@@ -7,7 +7,7 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.Extensions.DependencyInjection;
 
-    public class SeedData
+    public static class SeedData
     {
         public static Task Initialize(IServiceScope scope, GametekiDbContext context)
         {
