@@ -10,7 +10,7 @@
         public DateTime MessageDateTime { get; set; }
         public bool Removed { get; set; }
         public string RemovedById { get; set; }
-        public DateTime RemovedDataTime { get; set; }
+        public DateTime RemovedDateTime { get; set; }
 
         public virtual GametekiUser Sender { get; set; }
         public virtual GametekiUser RemovedBy { get; set; }
