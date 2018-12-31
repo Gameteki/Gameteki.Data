@@ -21,6 +21,7 @@
         public DbSet<News> News { get; set; }
         public DbSet<RefreshToken> RefreshToken { get; set; }
         public DbSet<BlockListEntry> BlockListEntry { get; set; }
+        public DbSet<LobbyMessage> LobbyMessage { get; set; }
 
         public void SetModified<TEntity>(TEntity entity)
             where TEntity : class

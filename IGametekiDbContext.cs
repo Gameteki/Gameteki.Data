@@ -15,6 +15,7 @@
         DbSet<BlockListEntry> BlockListEntry { get; set; }
         DbSet<GametekiUserRole> UserRoles { get; set; }
         DbSet<GametekiRole> Roles { get; set; }
+        DbSet<LobbyMessage> LobbyMessage { get; set; }
 
         DatabaseFacade Database { get; }
 
