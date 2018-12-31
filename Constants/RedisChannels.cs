@@ -7,5 +7,7 @@
         public const string UsersDisconnect = "UsersDisconnect";
         public const string LobbyHello = "LobbyHello";
         public const string LobbyHeartbeat = "LobbyHeartbeat";
+        public const string LobbyMessage = "LobbyMessage";
+        public const string LobbyMessageRemoved = "LobbyMessageRemoved";
     }
 }
