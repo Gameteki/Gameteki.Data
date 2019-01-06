@@ -9,5 +9,8 @@
         public const string LobbyHeartbeat = "LobbyHeartbeat";
         public const string LobbyMessage = "LobbyMessage";
         public const string LobbyMessageRemoved = "LobbyMessageRemoved";
+        public const string NewGame = "NewGame";
+        public const string UpdateGame = "UpdateGame";
+        public const string RemoveGame = "RemoveGame";
     }
 }
