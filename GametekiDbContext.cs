@@ -36,6 +36,7 @@
             builder.Entity<GametekiUser>(b =>
             {
                 b.ToTable("Users");
+                b.Property(u => u.Id).ValueGeneratedOnAdd();
                 b.HasMany(u => u.UserRoles).WithOne(ur => ur.User).HasForeignKey(ur => ur.UserId).IsRequired();
                 b.OwnsOne(user => user.Settings, settings =>
                 {
@@ -48,6 +49,7 @@
             {
                 role.ToTable("Roles");
                 role.HasKey(r => r.Id);
+                role.Property(u => u.Id).ValueGeneratedOnAdd();
                 role.HasIndex(r => r.NormalizedName).HasName("RoleNameIndex").IsUnique();
                 role.Property(r => r.ConcurrencyStamp).IsConcurrencyToken();
                 role.Property(r => r.Name).HasMaxLength(256);
