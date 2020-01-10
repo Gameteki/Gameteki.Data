@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageId>CrimsonDev.Gameteki.Data</PackageId>
     <Authors>Stuart Walsh</Authors>
     <Company>Crimson Development Limited</Company>
     <PackageDescription>Contains base data definitions for use in Gameteki derived projects</PackageDescription>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>    
-    <RepositoryUrl>https://github.com/Gameteki/Gameteki.Data</RepositoryUrl>
+    <RepositoryUrl>https://github.com/Gameteki/Gameteki.Data</RepositoryUrl>    
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
