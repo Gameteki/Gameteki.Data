@@ -3,13 +3,11 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
     <PackageId>CrimsonDev.Gameteki.Data</PackageId>
-    <Version>1.0.0</Version>
     <Authors>Stuart Walsh</Authors>
     <Company>Crimson Development Limited</Company>
     <PackageDescription>Contains base data definitions for use in Gameteki derived projects</PackageDescription>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>    
     <RepositoryUrl>https://github.com/Gameteki/Gameteki.Data</RepositoryUrl>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -21,13 +19,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CrimsonDev.Gameteki.StyleCop.Rules" Version="1.0.0.13" />
+    <PackageReference Include="CrimsonDev.Gameteki.StyleCop.Rules" Version="1.0.0.20" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
