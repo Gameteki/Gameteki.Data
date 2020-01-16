@@ -7,7 +7,6 @@
         public string Email { get; set; }
         public ApiSettings Settings { get; set; }
         public Permissions Permissions { get; set; }
-        public bool EnableGravatar { get; set; }
         public string CustomData { get; set; }
     }
 }
