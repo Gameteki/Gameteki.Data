@@ -8,7 +8,6 @@
         public string Email { get; set; }
         public string CurrentPassword { get; set; }
         public string NewPassword { get; set; }
-        public bool EnableGravatar { get; set; }
         public string CustomData { get; set; }
         [Required]
         public ApiSettings Settings { get; set; }
