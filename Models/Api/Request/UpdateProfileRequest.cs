@@ -1,6 +1,7 @@
 ﻿namespace CrimsonDev.Gameteki.Data.Models.Api
 {
     using System.ComponentModel.DataAnnotations;
+    using System.Text.Json.Serialization;
 
     public class UpdateProfileRequest
     {
@@ -11,5 +12,7 @@
         public string CustomData { get; set; }
         [Required]
         public ApiSettings Settings { get; set; }
+        [JsonConverter(typeof(Base64FileConverter))]
+        public byte[] Avatar { get; }
     }
 }
