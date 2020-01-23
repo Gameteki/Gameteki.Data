@@ -8,7 +8,7 @@ namespace CrimsonDev.Gameteki.Data
     {
         public override bool CanConvert(Type typeToConvert)
         {
-            return typeToConvert == typeof(string);
+            return typeToConvert == typeof(byte[]);
         }
 
         public override byte[] Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
