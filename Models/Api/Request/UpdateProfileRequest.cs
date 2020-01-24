@@ -13,6 +13,6 @@
         [Required]
         public ApiSettings Settings { get; set; }
         [JsonConverter(typeof(Base64FileConverter))]
-        public byte[] Avatar { get; }
+        public byte[] Avatar { get; set; }
     }
 }
