@@ -6,7 +6,7 @@
     using Microsoft.AspNetCore.Identity;
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "Entity framework properties")]
-    public abstract class GametekiUser : IdentityUser
+    public class GametekiUser : IdentityUser
     {
         public DateTime RegisteredDate { get; set; }
         public DateTime LastLoginDate { get; set; }
