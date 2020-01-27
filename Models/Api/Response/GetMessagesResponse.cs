@@ -4,6 +4,6 @@
 
     public class GetMessagesResponse : ApiResponse
     {
-        public List<ApiLobbyMessage> Messages { get; set; }
+        public List<ApiLobbyMessage> Messages { get; } = new List<ApiLobbyMessage>();
     }
 }

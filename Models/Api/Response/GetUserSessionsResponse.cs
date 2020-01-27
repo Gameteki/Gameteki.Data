@@ -4,6 +4,6 @@
 
     public class GetUserSessionsResponse : ApiResponse
     {
-        public List<ApiToken> Tokens { get; set; }
+        public List<ApiToken> Tokens { get; } = new List<ApiToken>();
     }
 }

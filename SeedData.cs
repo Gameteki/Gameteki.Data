@@ -1,5 +1,6 @@
 ﻿namespace CrimsonDev.Gameteki.Data
 {
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
     using CrimsonDev.Gameteki.Data.Constants;
@@ -11,6 +12,16 @@
     {
         public static Task Initialize(IServiceScope scope, GametekiDbContext context)
         {
+            if (scope == null)
+            {
+                throw new ArgumentNullException(nameof(scope));
+            }
+
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
+
             return CheckAndAddRoles(scope, context);
         }
 
@@ -26,7 +37,7 @@
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<GametekiRole>>();
                 if (!context.Roles.Any(r => r.Name == role))
                 {
-                    await roleManager.CreateAsync(new GametekiRole(role));
+                    await roleManager.CreateAsync(new GametekiRole(role)).ConfigureAwait(false);
                 }
             }
         }

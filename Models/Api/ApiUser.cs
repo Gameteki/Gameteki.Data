@@ -6,7 +6,7 @@
         public string Username { get; set; }
         public string Email { get; set; }
         public ApiSettings Settings { get; set; }
-        public Permissions Permissions { get; set; }
+        public GametekiPermissions GametekiPermissions { get; set; }
         public string CustomData { get; set; }
     }
 }

@@ -4,6 +4,6 @@
 
     public class GetNewsResponse : ApiResponse
     {
-        public List<News> News { get; set; }
+        public List<News> News { get; } = new List<News>();
     }
 }

@@ -13,6 +13,8 @@
         [Required]
         public ApiSettings Settings { get; set; }
         [JsonConverter(typeof(Base64FileConverter))]
+#pragma warning disable CA1819 // Properties should not return arrays
         public byte[] Avatar { get; set; }
+#pragma warning restore CA1819 // Properties should not return arrays
     }
 }

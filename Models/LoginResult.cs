@@ -3,7 +3,7 @@
     public class LoginResult
     {
         public GametekiUser User { get; set; }
-        public Permissions Permissions { get; set; }
+        public GametekiPermissions GametekiPermissions { get; set; }
         public string Token { get; set; }
         public string RefreshToken { get; set; }
     }

@@ -4,6 +4,6 @@
 
     public class GetBlockListResponse : ApiResponse
     {
-        public List<string> BlockList { get; set; }
+        public List<string> BlockList { get; } = new List<string>();
     }
 }

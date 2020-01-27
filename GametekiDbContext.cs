@@ -1,5 +1,6 @@
 ﻿namespace CrimsonDev.Gameteki.Data
 {
+    using System;
     using CrimsonDev.Gameteki.Data.Models;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -31,6 +32,11 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            if (builder == null)
+            {
+                throw new ArgumentNullException(nameof(builder));
+            }
+
             base.OnModelCreating(builder);
 
             builder.Entity<GametekiUser>(b =>

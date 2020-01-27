@@ -1,6 +1,6 @@
 ﻿namespace CrimsonDev.Gameteki.Data.Models
 {
-    public class Permissions
+    public class GametekiPermissions
     {
         public bool CanManageUsers { get; set; }
         public bool CanEditNews { get; set; }
