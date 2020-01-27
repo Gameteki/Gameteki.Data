@@ -2,6 +2,7 @@
 {
     using System;
     using CrimsonDev.Gameteki.Data.Models;
+    using CrimsonDev.Gameteki.Data.Models.Config;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,7 @@
         public DbSet<RefreshToken> RefreshToken { get; set; }
         public DbSet<BlockListEntry> BlockListEntry { get; set; }
         public DbSet<LobbyMessage> LobbyMessage { get; set; }
+        public DbSet<PatreonToken> PatreonToken { get; set; }
 
         public void SetModified<TEntity>(TEntity entity)
             where TEntity : class
@@ -80,6 +82,8 @@
             builder.Entity<IdentityUserLogin<string>>().ToTable("UserLogins");
             builder.Entity<IdentityUserClaim<string>>().ToTable("UserClaims");
             builder.Entity<IdentityUserToken<string>>().ToTable("UserTokens");
+
+            builder.Entity<PatreonToken>().HasKey(pt => pt.Id);
         }
     }
 }
