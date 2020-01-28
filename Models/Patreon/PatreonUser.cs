@@ -4,9 +4,9 @@ namespace CrimsonDev.Gameteki.Data.Models.Patreon
 
     public class PatreonUser
     {
-        [JsonPropertyName("attributes")]
         public PatreonUserAttributes Attributes { get; set; }
         public string Id { get; set; }
+        public PatreonRelationships Relationships { get; set; }
         public string Type { get; set; }
     }
 }
