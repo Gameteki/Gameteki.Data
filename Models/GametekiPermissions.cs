@@ -8,5 +8,8 @@
         public bool CanManageGames { get; set; }
         public bool CanManageNodes { get; set; }
         public bool CanModerateChat { get; set; }
+        public bool IsSupporter { get; set; }
+        public bool IsContributor { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }
