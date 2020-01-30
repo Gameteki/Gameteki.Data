@@ -29,7 +29,8 @@
         {
             var roles = new[]
             {
-                Roles.UserManager, Roles.NewsManager, Roles.GameManager, Roles.PermissionsManager, Roles.NodeManager, Roles.ChatManager
+                Roles.UserManager, Roles.NewsManager, Roles.GameManager, Roles.PermissionsManager, Roles.NodeManager, Roles.ChatManager, Roles.Admin, Roles.Supporter,
+                Roles.Contributor
             };
 
             foreach (var role in roles)
