@@ -22,10 +22,12 @@
                 throw new ArgumentNullException(nameof(context));
             }
 
-            return CheckAndAddRoles(scope, context);
+            return Task.CompletedTask;
+
+            // return CheckAndAddRoles(scope, context);
         }
 
-        private static async Task CheckAndAddRoles(IServiceScope scope, GametekiDbContext context)
+/*        private static async Task CheckAndAddRoles(IServiceScope scope, GametekiDbContext context)
         {
             var roles = new[]
             {
@@ -41,6 +43,6 @@
                     await roleManager.CreateAsync(new GametekiRole(role)).ConfigureAwait(false);
                 }
             }
-        }
+        }*/
     }
 }

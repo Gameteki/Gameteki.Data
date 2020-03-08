@@ -9,7 +9,7 @@
         public int Id { get; set; }
         public DateTime DatePublished { get; set; }
         [JsonIgnore]
-        public string PosterId { get; set; }
+        public int PosterId { get; set; }
         public string Text { get; set; }
 
         [JsonIgnore]

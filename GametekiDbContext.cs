@@ -1,15 +1,12 @@
 ﻿namespace CrimsonDev.Gameteki.Data
 {
     using System;
+    using System.Linq;
     using CrimsonDev.Gameteki.Data.Models;
-    using CrimsonDev.Gameteki.Data.Models.Config;
     using Microsoft.AspNetCore.Identity;
-    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
-    public class GametekiDbContext : IdentityDbContext<GametekiUser, GametekiRole, string,
-        IdentityUserClaim<string>, GametekiUserRole, IdentityUserLogin<string>,
-        IdentityRoleClaim<string>, IdentityUserToken<string>>, IGametekiDbContext
+    public class GametekiDbContext : DbContext, IGametekiDbContext
     {
         public GametekiDbContext(DbContextOptions options)
             : base(options)
@@ -21,10 +18,12 @@
         }
 
         public DbSet<News> News { get; set; }
-        public DbSet<RefreshToken> RefreshToken { get; set; }
         public DbSet<BlockListEntry> BlockListEntry { get; set; }
         public DbSet<LobbyMessage> LobbyMessage { get; set; }
         public DbSet<PatreonToken> PatreonToken { get; set; }
+        public DbSet<GametekiUser> Users { get; set; }
+        public DbSet<GametekiRole> Roles { get; set; }
+        public DbSet<GametekiUserRole> UserRoles { get; set; }
 
         public void SetModified<TEntity>(TEntity entity)
             where TEntity : class
@@ -40,6 +39,11 @@
             }
 
             base.OnModelCreating(builder);
+
+            foreach (var relationship in builder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.Restrict;
+            }
 
             builder.Entity<GametekiUser>(b =>
             {
@@ -58,19 +62,9 @@
                 role.ToTable("Roles");
                 role.HasKey(r => r.Id);
                 role.Property(u => u.Id).ValueGeneratedOnAdd();
-                role.HasIndex(r => r.NormalizedName).HasName("RoleNameIndex").IsUnique();
-                role.Property(r => r.ConcurrencyStamp).IsConcurrencyToken();
                 role.Property(r => r.Name).HasMaxLength(256);
-                role.Property(r => r.NormalizedName).HasMaxLength(256);
 
                 role.HasMany<GametekiUserRole>().WithOne(ur => ur.Role).HasForeignKey(ur => ur.RoleId);
-                role.HasMany<IdentityRoleClaim<string>>().WithOne().HasForeignKey(rc => rc.RoleId);
-            });
-
-            builder.Entity<IdentityRoleClaim<string>>(roleClaim =>
-            {
-                roleClaim.HasKey(rc => rc.Id);
-                roleClaim.ToTable("RoleClaims");
             });
 
             builder.Entity<GametekiUserRole>(userRole =>
@@ -78,10 +72,6 @@
                 userRole.ToTable("UserRoles");
                 userRole.HasKey(r => new { r.UserId, r.RoleId });
             });
-
-            builder.Entity<IdentityUserLogin<string>>().ToTable("UserLogins");
-            builder.Entity<IdentityUserClaim<string>>().ToTable("UserClaims");
-            builder.Entity<IdentityUserToken<string>>().ToTable("UserTokens");
 
             builder.Entity<PatreonToken>().HasKey(pt => pt.Id);
         }

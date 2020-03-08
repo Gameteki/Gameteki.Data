@@ -1,16 +1,17 @@
 ﻿namespace CrimsonDev.Gameteki.Data.Models
 {
-    using Microsoft.AspNetCore.Identity;
-
-    public class GametekiRole : IdentityRole<string>
+    public class GametekiRole
     {
         public GametekiRole()
         {
         }
 
         public GametekiRole(string roleName)
-            : base(roleName)
         {
+            Name = roleName;
         }
+
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
