@@ -2,7 +2,8 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
-    using Newtonsoft.Json;
+    using System.Text.Json.Serialization;
+    using Newtonsoft.Json.Serialization;
 
     public class News
     {
@@ -16,7 +17,7 @@
         public virtual GametekiUser Poster { get; set; }
 
         [NotMapped]
-        [JsonProperty(PropertyName = "poster")]
+        [JsonPropertyName("poster")]
         public string PosterName => Poster?.UserName;
     }
 }
