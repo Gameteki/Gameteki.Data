@@ -22,12 +22,10 @@
                 throw new ArgumentNullException(nameof(context));
             }
 
-            return Task.CompletedTask;
-
-            // return CheckAndAddRoles(scope, context);
+            return CheckAndAddRoles(context);
         }
 
-/*        private static async Task CheckAndAddRoles(IServiceScope scope, GametekiDbContext context)
+        private static async Task CheckAndAddRoles(GametekiDbContext context)
         {
             var roles = new[]
             {
@@ -37,12 +35,17 @@
 
             foreach (var role in roles)
             {
-                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<GametekiRole>>();
-                if (!context.Roles.Any(r => r.Name == role))
+                if (context.Roles.Any(r => r.Name == role))
                 {
-                    await roleManager.CreateAsync(new GametekiRole(role)).ConfigureAwait(false);
+                    continue;
                 }
+
+                var newRole = new GametekiRole(role);
+
+                context.Roles.Add(newRole);
             }
-        }*/
+
+            await context.SaveChangesAsync().ConfigureAwait(false);
+        }
     }
 }
