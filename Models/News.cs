@@ -3,7 +3,6 @@
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Text.Json.Serialization;
-    using Newtonsoft.Json.Serialization;
 
     public class News
     {
@@ -11,6 +10,8 @@
         public DateTime DatePublished { get; set; }
         [JsonIgnore]
         public int PosterId { get; set; }
+
+        [JsonPropertyName("newsText")]
         public string Text { get; set; }
 
         [JsonIgnore]
